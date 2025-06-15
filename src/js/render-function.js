@@ -20,13 +20,15 @@ export function createGallery(images) {
         views,
         comments,
         downloads,
-      }) =>
-        `<li class="gallery-item">
+      }) => {
+        const imageTags = tags.split(',').slice(0, 3).join(',');
+
+        return `<li class="gallery-item">
             <a class="gallery-link" href="${largeImageURL}">
                 <img
                     class="gallery-image"
                     src="${webformatURL}"
-                    alt="${tags}"/>
+                    alt="${imageTags}"/>
             </a>
             <div class="info-wrapper">
                 <div class="attr-wrapper">
@@ -46,7 +48,8 @@ export function createGallery(images) {
                     <span class="text">${downloads}</span>
                 </div>
             </div>        
-        </li>`
+        </li>`;
+      }
     )
 
     .join('');
